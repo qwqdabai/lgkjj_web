@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://litter.catbox.moe/nypgj0.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>临桂区科技政策查询</title>
+<script src="./临桂区科技政策查询平台_files/qrcode.min.js.下载"></script>
+<style>
+  :root{
+    --primary:#1a365d;
+    --primary-2:#2c5282;
+    --accent:#2b6cb0;
+    --accent-light:#ebf4ff;
+    --text:#1a202c;
+    --text-2:#4a5568;
+    --text-3:#718096;
+    --border:#e2e8f0;
+    --bg:#f7fafc;
+    --card:#ffffff;
+    --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+    --shadow-hover:0 10px 25px rgba(26,54,93,.10),0 4px 10px rgba(0,0,0,.05);
+    --radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ===== Header ===== */
+  .site-header{
+    background:linear-gradient(135deg,#1a365d 0%,#2c5282 100%);
+    color:#fff;
+    padding:34px 0 30px;
+    position:relative;
+    overflow:hidden;
+  }
+  .site-header::before{
+    content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;
+    background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%);
+    border-radius:50%;
+  }
+  .container{max-width:1100px;margin:0 auto;padding:0 24px}
+  .header-inner{position:relative;z-index:1}
+  .badge{
+    display:inline-block;font-size:12px;letter-spacing:2px;
+    background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px;
+    margin-bottom:14px;font-weight:500;
+  }
+  .site-header h1{font-size:28px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
+  .site-header .subtitle{font-size:14px;color:rgba(255,255,255,.8);font-weight:300}
+
+  /* ===== Tabs ===== */
+  .tabs-wrap{
+    background:#fff;border-bottom:1px solid var(--border);
+    position:sticky;top:0;z-index:30;
+    box-shadow:0 1px 0 rgba(0,0,0,.02);
+  }
+  .tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    padding:16px 26px;cursor:pointer;font-size:15px;color:var(--text-2);
+    border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;
+    font-weight:500;position:relative;
+  }
+  .tab:hover{color:var(--primary)}
+  .tab.active{color:var(--primary);border-bottom-color:var(--accent)}
+  .tab .count{
+    display:inline-block;margin-left:6px;font-size:12px;background:var(--bg);
+    color:var(--text-3);padding:1px 8px;border-radius:10px;font-weight:400;
+  }
+  .tab.active .count{background:var(--accent-light);color:var(--accent)}
+
+  /* ===== Toolbar ===== */
+  .toolbar{
+    display:flex;align-items:center;gap:14px;margin:24px 0 18px;flex-wrap:wrap;
+  }
+  .search-box{
+    flex:1;min-width:240px;position:relative;
+  }
+  .search-box input{
+    width:100%;padding:11px 16px 11px 42px;border:1px solid var(--border);
+    border-radius:8px;font-size:14px;background:#fff;transition:border-color .2s,box-shadow .2s;
+    color:var(--text);
+  }
+  .search-box input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light)}
+  .search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-3)}
+  .result-info{font-size:13px;color:var(--text-3)}
+
+  /* ===== Cards ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;margin-bottom:60px}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px;cursor:pointer;transition:all .22s ease;position:relative;
+    display:flex;flex-direction:column;
+  }
+  .card:hover{
+    transform:translateY(-3px);box-shadow:var(--shadow-hover);
+    border-color:#cbd5e0;
+  }
+  .card .level-tag{
+    display:inline-block;font-size:12px;padding:3px 10px;border-radius:4px;
+    margin-bottom:12px;font-weight:500;width:fit-content;
+  }
+  .level-lingui{background:#e6fffa;color:#2c7a7b}
+  .level-guilin{background:#fef5e7;color:#c05621}
+  .level-gx{background:#ebf4ff;color:#2b6cb0}
+  .card h3{font-size:17px;font-weight:600;color:var(--text);margin-bottom:10px;line-height:1.5}
+  .card .meta{font-size:12.5px;color:var(--text-3);margin-bottom:12px}
+  .card .meta span{margin-right:14px}
+  .card .summary{font-size:13.5px;color:var(--text-2);line-height:1.7;flex:1;
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .card .read-more{
+    margin-top:16px;font-size:13px;color:var(--accent);font-weight:500;
+    display:flex;align-items:center;gap:4px;
+  }
+  .card:hover .read-more{gap:8px}
+
+  .empty{
+    text-align:center;padding:60px 20px;color:var(--text-3);grid-column:1/-1;
+  }
+  .empty svg{margin-bottom:12px;opacity:.5}
+
+  /* ===== Detail View ===== */
+  .detail-overlay{
+    position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:100;
+    opacity:0;visibility:hidden;transition:opacity .25s;
+  }
+  .detail-overlay.show{opacity:1;visibility:visible}
+  .detail-panel{
+    position:fixed;top:0;right:0;height:100%;width:100%;max-width:820px;
+    background:#fff;z-index:101;transform:translateX(100%);
+    transition:transform .3s cubic-bezier(.4,0,.2,1);
+    display:flex;flex-direction:column;
+  }
+  .detail-panel.show{transform:translateX(0)}
+  .detail-header{
+    padding:18px 28px;border-bottom:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;
+    background:#fff;position:sticky;top:0;
+  }
+  .back-btn{
+    display:flex;align-items:center;gap:6px;background:none;border:none;
+    cursor:pointer;font-size:14px;color:var(--text-2);padding:6px 10px;
+    border-radius:6px;transition:background .15s;
+  }
+  .back-btn:hover{background:var(--bg);color:var(--primary)}
+  .detail-body{flex:1;overflow-y:auto;padding:32px 40px 80px}
+  .detail-body .doc-no{
+    font-size:13px;color:var(--accent);font-weight:600;margin-bottom:14px;
+    letter-spacing:.5px;
+  }
+  .detail-body h2{
+    font-size:24px;font-weight:700;color:var(--primary);line-height:1.5;
+    margin-bottom:18px;
+  }
+  .detail-meta{
+    display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text-3);
+    padding:14px 18px;background:var(--bg);border-radius:8px;margin-bottom:28px;
+    border-left:3px solid var(--accent);
+  }
+  .detail-meta div strong{color:var(--text-2);font-weight:500;margin-right:4px}
+  .policy-content{font-size:15px;color:var(--text);line-height:1.9}
+  .policy-content h3.section-title{
+    font-size:17px;font-weight:600;color:var(--primary);
+    margin:28px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border);
+  }
+  .policy-content h4.sub-title{
+    font-size:15px;font-weight:600;color:var(--primary-2);margin:20px 0 8px;
+  }
+  .policy-content p{margin-bottom:12px;text-align:justify}
+  .policy-content .lead{color:var(--text-2);margin-bottom:18px}
+  .policy-content ul{padding-left:22px;margin-bottom:12px}
+  .policy-content li{margin-bottom:6px}
+  .policy-content .footnote{
+    margin-top:30px;padding-top:18px;border-top:1px dashed var(--border);
+    font-size:13px;color:var(--text-3);
+  }
+
+  /* ===== 微信环境引导遮罩 ===== */
+  .wx-guide{
+    display:none;position:fixed;inset:0;z-index:9999;
+    background:rgba(0,0,0,.82);
+    justify-content:center;align-items:center;padding:24px;
+  }
+  .wx-guide.show{display:flex;}
+  .wx-guide-inner{
+    background:#fff;border-radius:18px;padding:32px 26px 26px;
+    max-width:340px;width:100%;text-align:center;position:relative;
+    box-shadow:0 12px 40px rgba(0,0,0,.3);
+  }
+  .wx-arrow{
+    position:absolute;top:-6px;right:18px;
+    color:#07c160;font-size:42px;font-weight:bold;
+    animation:wxArrowBounce 1.2s ease-in-out infinite;
+  }
+  @keyframes wxArrowBounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+  }
+  .wx-icon{font-size:48px;margin-bottom:12px}
+  .wx-guide-inner h3{
+    font-size:20px;color:#1a202c;margin-bottom:10px;font-weight:700;
+  }
+  .wx-guide-inner p{
+    font-size:14px;color:#4a5568;line-height:1.7;margin-bottom:20px;
+  }
+  .wx-guide-inner p b{color:#e53e3e}
+  .wx-steps{
+    display:flex;justify-content:center;gap:12px;margin-bottom:22px;flex-wrap:wrap;
+  }
+  .wx-step{
+    background:#f7fafc;border:1px solid #e2e8f0;border-radius:10px;
+    padding:10px 14px;font-size:13px;color:#2d3748;display:flex;align-items:center;gap:8px;
+  }
+  .wx-step span{
+    background:#07c160;color:#fff;width:22px;height:22px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;
+  }
+  .wx-close{
+    background:#07c160;color:#fff;border:none;border-radius:10px;
+    padding:12px 24px;font-size:15px;font-weight:600;cursor:pointer;width:100%;
+    transition:background .2s;
+  }
+  .wx-close:hover{background:#06ad56}
+
+  /* ===== Footer / QR Section ===== */
+  .footer-qr{
+    background:linear-gradient(135deg,#f8fafc 0%,#eef2f7 100%);
+    border-top:1px solid var(--border);
+    padding:44px 24px 28px;
+  }
+  .qr-card{
+    max-width:380px;margin:0 auto;background:#fff;border:1px solid var(--border);
+    border-radius:14px;padding:28px 24px 22px;text-align:center;
+    box-shadow:0 4px 16px rgba(26,54,93,.06);
+  }
+  .qr-card .qr-canvas{
+    display:flex;justify-content:center;margin-bottom:16px;
+  }
+  .qr-card .qr-canvas canvas,.qr-card .qr-canvas img{display:block}
+  .qr-card h4{
+    font-size:17px;font-weight:700;color:var(--primary);margin-bottom:6px;letter-spacing:.5px;
+  }
+  .qr-card .qr-sub{font-size:13px;color:var(--text-2);margin-bottom:14px}
+  .qr-card .qr-tip{
+    font-size:12px;color:var(--text-3);line-height:1.6;
+    padding-top:12px;border-top:1px dashed var(--border);
+  }
+  .site-footer{
+    text-align:center;padding:18px 20px 24px;color:var(--text-3);font-size:12.5px;
+    background:#fff;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width:640px){
+    .site-header h1{font-size:22px}
+    .tab{padding:14px 18px;font-size:14px}
+    .detail-body{padding:24px 22px 80px}
+    .detail-body h2{font-size:20px}
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- 微信环境引导遮罩 -->
+<div class="wx-guide" id="wxGuide">
+  <div class="wx-guide-inner">
+    <div class="wx-arrow">↗</div>
+    <div class="wx-icon">📱</div>
+    <h3>请在浏览器中打开</h3>
+    <p>当前在微信中浏览，部分功能可能受限。<br>请点击右上角 <b>···</b>，选择「<b>在浏览器打开</b>」</p>
+    <div class="wx-steps">
+      <div class="wx-step"><span>1</span> 点右上角菜单</div>
+      <div class="wx-step"><span>2</span> 选"在浏览器打开"</div>
+    </div>
+    <button class="wx-close" id="wxClose">我知道了，继续浏览</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <span class="badge">LINGUI · SCIENCE &amp; TECHNOLOGY</span>
+    <h1>临桂区科技政策查询平台</h1>
+    <p class="subtitle">汇集自治区级 · 桂林市 · 临桂区三级科技创新政策，一键查阅原文</p>
+  </div>
+</header>
+
+<div class="tabs-wrap">
+  <div class="container">
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-level="all">全部政策 <span class="count" id="count-all">5</span></div>
+      <div class="tab" data-level="lingui">临桂区 <span class="count" id="count-lingui">1</span></div>
+      <div class="tab" data-level="guilin">桂林市 <span class="count" id="count-guilin">2</span></div>
+      <div class="tab" data-level="gx">自治区级 <span class="count" id="count-gx">2</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="toolbar">
+    <div class="search-box">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="search" placeholder="搜索政策标题、文号或关键词…">
+    </div>
+    <div class="result-info" id="resultInfo">共 5 条政策</div>
+  </div>
+
+  <div class="grid" id="grid">
+    <div class="card" data-id="lg-1">
+      <span class="level-tag level-lingui">临桂区级</span>
+      <h3>临桂区促进科技创新发展实施办法</h3>
+      <div class="meta">
+        <span>临政规〔2022〕5号</span>
+        <span>2022-06-24</span>
+      </div>
+      <div class="summary">对高新技术企业、科技型中小企业、孵化平台、技术合同登记、科技成果转化、瞪羚企业、研发机构及创新创业大赛等给予财政奖补，覆盖临桂区科技创新全链条。</div>
+      <div class="read-more">
+        查看原文
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+  
+    <div class="card" data-id="gl-2">
+      <span class="level-tag level-guilin">桂林市级</span>
+      <h3>桂林市支持科技成果转化若干政策措施（2024年修订）</h3>
+      <div class="meta">
+        <span>市政规〔2024〕10号</span>
+        <span>2024-11-20</span>
+      </div>
+      <div class="summary">聚焦科技成果转化实施、专业化服务、产学研深度合作、多元化融资渠道，对高校院所成果转化、企业吸纳成果产业化、农业成果推广、高端人才带成果转化、技术转移机构及中试平台等给予奖补。</div>
+      <div class="read-more">
+        查看原文
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+  
+    <div class="card" data-id="gl-1">
+      <span class="level-tag level-guilin">桂林市级</span>
+      <h3>桂林市支持科技创新发展的若干政策措施</h3>
+      <div class="meta">
+        <span>市政规〔2024〕6号</span>
+        <span>2024-05-27</span>
+      </div>
+      <div class="summary">围绕企业研发经费投入、高新技术企业与瞪羚企业培育、创新创业大赛、重大科技项目配套、核心技术攻关、产学研合作、创新平台与孵化载体建设、高层次人才服务等方面出台系统性奖补措施。</div>
+      <div class="read-more">
+        查看原文
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+  
+    <div class="card" data-id="gx-2">
+      <span class="level-tag level-gx">自治区级</span>
+      <h3>科创广西先行试验区（桂林）建设方案</h3>
+      <div class="meta">
+        <span>桂政办发〔2026〕5号</span>
+        <span>2026-01-24</span>
+      </div>
+      <div class="summary">以临桂、七星、雁山、花江四大智慧谷为核心区，实施高能级科创园区建设、科技成果转化集聚、壮大科技企业、开放创新平台建设、科技体制机制改革五大先行突破行动，自治区每年新增安排8000万元专项资金支持。</div>
+      <div class="read-more">
+        查看原文
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+  
+    <div class="card" data-id="gx-1">
+      <span class="level-tag level-gx">自治区级</span>
+      <h3>关于进一步强化企业科技创新主体地位培育壮大科技型企业的若干措施</h3>
+      <div class="meta">
+        <span>桂政办发〔2025〕42号</span>
+        <span>2025-09-20</span>
+      </div>
+      <div class="summary">围绕构建高质量科技型企业矩阵、发挥企业出题人、答题人、阅卷人作用、激励企业持续加大研发投入、培育企业科技人才队伍、加强科技金融支持、优化政策环境六大维度提出25条具体措施。</div>
+      <div class="read-more">
+        查看原文
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detail overlay & panel -->
+<div class="detail-overlay" id="overlay"></div>
+<div class="detail-panel" id="detailPanel">
+  <div class="detail-header">
+    <button class="back-btn" id="backBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      返回列表
+    </button>
+    <button class="back-btn" id="closeBtn" title="关闭">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="detail-body" id="detailBody"></div>
+</div>
+
+<!-- 底部二维码区 -->
+<section class="footer-qr">
+  <div class="qr-card">
+    <div class="qr-canvas" id="qrCanvas" title="https://litter.catbox.moe/nypgj0.html"><canvas width="170" height="170" style="display: none;"></canvas><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAACqCAYAAAA9dtSCAAALzUlEQVR4Aeydgc3syA2Df1wZSR9JNUlx6SaFpI4LCGSQwWeuLc8/Xo93eYBgS6YomSYW84B7d3/85W//+PPO+PPCf/helVHseZWT6xWur7PnN3nPe+Z+ZOYZ/quwf/zknyjwAAVi1Ad8pKz48xOjxgWPUGBj1P/8+18/V8WoIn/9+z9/RmJ03qw+6jjK6959FvfoTpw/M3c7bYzqQKlFgbsV+L9R794k86PAjgIx6o44ebSOAjHqOt8im+woUDKqO8wf1XZm7j5yvDyo7xKcfMh5rp3zlTscaxVu9ihnn+YxhDsK9ign9xHHmefkruRV/pJRq2TBRYGrFIhRr1I2vFMVcEadOiBkUWCGAo80qs5ajFExruIRL3dyZzZiXD7a57i0Vx8zud28WbVHGnXWy4fnOQrEqM/5Vl+9aYz61Z//OS8foz7nW331pvtGvUGa/qDf7kfXaP3tOvoHB9dXqbW5e1f3bnv49ox9rd5f3Y6VPmJWyJcz6gqiZIf1FIhR1/sm2cgoEKMaUVJaT4GSUftzT/V+5qvyrOW43V7EOQy5HWa0Rm7uo5wY5aofhXB9OLzb2+Fm1dy8o1p1dsmoVbLgosBVClSNetX88EaBkgIxakmmgO5WIEa9+wtkfkmBjVH7A/rs+8pGbiYP5A7juIlzmEqNPMrZpxqjsjcxysnDWdWcPMrZqxqDGJezZ2bu5m2M6kCpRYG7FYhR7/4CmV9S4LxRS7QBRYG5CsSoc/UM20UK/KHD+53B93K78KDOnmpOHuWcpxrD8Vcwrq9S406uhxjuo5wY5ar34bhZU9/dkV9UfpXkSyoQoy75WbIUFYhRqUjyJRUYMur/zji7/81S97ajfZXzkZtX6eNOrmeU2/WxxvnKiXG5cH04jKvx/RxmVq3f79V9ddaQUavkwUWBWQrEqLOUDM+lCsSol8ob8lkKxKizlAzPpQpMMyoP6e7wTIxyvp3rm1XjrGquPRmVnchPjlf5CDdnVXO3A3vdPsQoJ85xs6a+SswxamVSMFHgFwrEqL8QL63vUyBGfZ/WmfQLBf7gucLl5Oc5Q3kF47jV2wd5lPfPda8aQ/WjqMx3GFfjLO6jnH2qMYhRTm6Xk2dmrh36GOXuOdp9hath+2t+USvKBXO7AjHq7Z8gC1QUmG3UysxgosBpBWLU05Kl4Q4FSkbtD7W6H13U/aFAfH04DOdVMOrpeXWvGkP1Phy3q/U9uneYo1nVPvK43M0X/1E4rkrN8Y72kcu9S8molQWCiQJXKhCjXqluuKcpEKNOkzJEVypwnVGv3DrcX6fA5q9LVxTg4dfljqeKc719zfG4mjuUH9UcTz+73ZPH9RHjctfHWpvZX8nVP2v3xLi8Yfsrcf2zvXv2jeZuRn5RnSqpLadAjLrcJ8lCToEY1amS2nIKvNWolTMLz2cudzyjypLfcROjnPMqfex5lZPrFa6va6ergvso72e3e85v9f5KjMt7fLt/h1HbrFyjwLACMeqwdGl8pwIx6jvVzqxhBWLUYenS+E4FphlVB+w+3CHZ1Wa9bD+73XNeZRZ7lI/2tT3aVVyM9qy/jszr+/fuye2wxLjc9bHGd1XuuFgTjjHNqByWPArMVOC9Rp25ebi+SoEY9as+93NfdvPXpd2r8OzhMKyx51XOPpez12FGa1dy85xV3ZF9Lq9wuT6+bwXjZrk+1lwfa9xHOTHK84sqFRLLKxCjLv+JsqAUiFGlQmJ5Be4y6vLCZMG1FNj8G/46zDIqK/MgXc3JzdnKiXG5m+dwV9W051FUZx/xuOfu/R2uukOPq3K7eaz1vGfu84t6Rq1gb1MgRr1N+gw+o0CMekatYG9TIEa9TfoMPqNAyag8TPOArJxDVavEDxsLOfdR7mYVqDb/90HH42qaeTbcPo6DOIdhze1IHuWVvgpGXEdBHuXsUY3h3qVkVJInjwLvViBGfbfimTekQIw6JFua3q3A5t+e4nlBOc8MqjEqi7NHOftUOwruo9z1VLhHMOrRzD5UY/TPz9zzXcirnHyqzYoKN3dUPjKfs5SLi5Ff1BF10/N2BVYy6ttfPgOfo0CM+pxv9dWbxqhf/fmf8/JDRtWB9yh4GFbuelTvw2Eqcs7qc7P6/dq9w7HWsO3K569yvovDNc69q+sb4XY8rsZdHIbz2aPc9Q0Z1RGlFgWuVCBGvVLdcE9TYE2jTnu9EH2KAhuj8gyhXOeGPtzL9891rz6G6gxiHDcx5HiVs8/l7HXzKzXHzRpnKXfcqvfhMOR2ec9x5p7zXK+bx76Z+caoM8nDFQVmKRCjzlIyPJcqEKNeKm/IZykQo85SMjyXKrD569KVg7PDcEuHcQdw4sBjU8fjamzmLOXEuNxxq7cP18ea4yFGucOxJlwf/S7tvn9+5p6zXN5m9NczMxrWcbtaflGbYrkurUCMuvTnyXJNgRi1KZHr0grEqEt/nizXFNj8VZT2YO/qDrvEO0x/8G737Pu2vOnw26vTzX0D4ioY9iiv9FUw4mI4LZ7zi8q3Sf5VCsSoX/W5n/uyMepzv91Xbb4xqjtX8MxQUYg9yh03a8LNisqenO963D4Oxxr7+Fw55ytXvQ/VjqLHn7nnji53fA7HHR2mUiOP8o1R3VKpRYG7FYhR7/4CmV9S4IlGLb1YQJ+lQIz6Wd/zY99mY1R32NVhto9RNRw3ufo5r+7ZU80dX7X3COfejfOOOF49d9ysveplnTtVcnL8Jh+dtzHqb5ZIbxS4SoEY9SplwztVgRh1qpwhu0qBaUbl2cMtTIxyhyvXOqC4GN3jl7eVsx55lZNQNQYxozl5qznfTfnIDupjuB2IGZn1qmeaUV8NSD0KzFAgRp2hYjguVyBGvVziDJihQIw6Q8VwXK5Ayag8JFdyt/loH7kqB3nNYt9oLi4Gd3Dc7HG562PN9VVq5FHOPtVmxYgmbjZ3VF4yqiNbrJZ1PlyBGPXDP/CnvF6M+ilf8sPfI0b98A/8Ka+3MSoPxC53L09cBaMeh2NNh+k++Fy5uBiqHwV7XH7EMfs5d3D8xLi80tfr+urecTusmzertjHqLOLwRIGZCnyeUWeqE65lFIhRl/kUWWRPgWlG5Zmleq4hjjzKK5i9l9x7Jv6j2OtvzxwH93a562Ptyr62/96V+yh3eNX7cBjWeny7d+87zahcIHkUmKlAjDpTzXBdpkCMepm0IZ6pwCcbdaZO4bpZgc3/bKKyjzvssuZ4iFHucKy1Q3a78rny9mzvKhxDO/TB58r75+1e9RnR+PauM+ac4djbZe/ZmRkN6/jas/6aX9Rejdwvq0CMuuynyWK9AjFqr0bul1Vg89/w3zvjXfFsljKVs47bn/MrPOohl2pHwZ7f5JxV3Zs48rjc7elws2pu3nf8os5SMDy3KRCj3iZ9Bp9RIEY9o1awtykQo94mfQafUWBjVB62Z+aVxUbnOW5yOQxr7iDvauzjLOUVjHAjQe7KjuohTrWjcPsd9bx6Ti7uo9z1bozqQKlFgbsV+Daj3q135g8qEKMOCpe29yoQo75X70wbVKBkVB1wz8bgPj9uToVrVp+bxT8AKCfOza/UyKOcfaoxtMNRkEc5eVwu3EiQy+1Xwbi+klFJnjwKvFuBGPXdimfekALfa9QhudJ0lwKPMCrPSzPFcuch1kbnzeJx86mJyzl/NHfzK1xuJ9Yct6s9wqhu8dS+S4EY9bu+92PfNkZ97Kf7rsVj1O/63o992+WMOnpId308uDvMz8/PlI/nuEfnk4s8yolxLyEcgzg+V04MZykX7iiEO4ojjvZ8OaNSpORRQArEqFIhsbwCMerynygLSoGSUY/OGe65yK8KN6+dZforcf2zV/fVncnt+ohxM10fcRUMZ73KyeVwnO9y8rjc9bHm+lytZFTXmFoUeKcCMWqvdu6XVSBGXfbTZLFegRi1VyP3yyqwMSoPuzPzWSq4nRw3ce4PDuxjTzUnTzV3/NzTcVUwjptcDkPud+fcUfnGqComosBqCsSoq32R7GMViFGtLD+pLqZAjLrYB8k6XoH/AgAA//8O5xQ0AAAABklEQVQDAHt3yGr1pucmAAAAAElFTkSuQmCC" style="display: block;"></div>
+    <h4>临桂区科技政策查询平台</h4>
+    <div class="qr-sub">手机扫码 · 随时查阅政策原文</div>
+    <div class="qr-tip">扫描上方二维码即可在手机浏览器打开本页面<br>支持临桂区 / 桂林市 / 自治区级三级政策查询</div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  临桂区科技政策查询平台 · 政策原文来源于各级政府官方网站，仅供查阅参考
+</footer>
+
+<script>
+/* ============ 政策数据 ============ */
+const POLICIES = [
+  /* ===== 临桂区级 ===== */
+  {
+    id:"lg-1",
+    level:"lingui",
+    levelLabel:"临桂区级",
+    title:"临桂区促进科技创新发展实施办法",
+    docNo:"临政规〔2022〕5号",
+    issuingUnit:"桂林市临桂区人民政府",
+    date:"2022-06-24",
+    valid:"有效期五年",
+    summary:"对高新技术企业、科技型中小企业、孵化平台、技术合同登记、科技成果转化、瞪羚企业、研发机构及创新创业大赛等给予财政奖补，覆盖临桂区科技创新全链条。",
+    body:`
+      <p class="lead">为贯彻落实《自治区党委办公厅、自治区人民政府办公厅印发＜关于进一步深化科技体制改革推动科技创新促进广西高质量发展的若干措施＞的通知》（厅发〔2020〕29号）、《桂林市人民政府印发关于进一步深化科技体制改革推动科技创新促进桂林高质量发展的若干措施的通知》（市政规〔2021〕27号）等文件精神，加快实施创新驱动发展战略，完善科技创新体系，激发创新创业活力，结合我区实际，制定本办法。</p>
+
+      <h3 class="section-title">第一条 适用范围</h3>
+      <p>临桂行政区域内注册并从事科技创新活动的企事业单位、社会团体等法人单位和自然人，适用本办法。</p>
+
+      <h3 class="section-title">第二条 管理职责</h3>
+      <p>区人民政府对促进科技创新发展工作进行领导和总体统筹，协调推进科技创新发展工作。区科技主管部门负责本行政区域促进科技创新发展工作的管理和监督。其他有关部门按照各自职责做好促进科技创新发展工作。</p>
+
+      <h3 class="section-title">第三条 财政投入机制</h3>
+      <p>区人民政府及时完善财政科技投入机制，由一次性拨款向更加注重滚动支持转变，由前期投入向更加注重后期补助转变，由零散投入向更加注重集中扶持转变。</p>
+      <p>坚持"集中财力办大事"的原则，围绕临桂区产业发展的重点领域、重点环节，将大部分财政科技经费预算集中投向重大科学研究、重大科技攻关、重大新产品研发和国家、自治区、桂林市级创新平台建设。其他资金坚持"抓大扶小"的原则，主要用于营造"创新创业"氛围，支持初创期科技型企业，培植发展后劲等方面。</p>
+
+      <h3 class="section-title">第四条 高新技术企业奖补</h3>
+      <p>自2021年起，经区科技主管部门核定，对被认定为国家高新技术企业的采取以下支持政策：</p>
+      <ul>
+        <li>对首次通过国家认定的高新技术企业，一次性补助5万元；</li>
+        <li>对通过国家重新认定的高新技术企业，一次性补助3万元。</li>
+      </ul>
+
+      <h3 class="section-title">第五条 科技型中小企业奖补</h3>
+      <p>鼓励企业申报科技型中小企业。自2021年起，对通过"全国科技型中小企业信息服务平台"完成科技型中小企业评价入库的企业一次性补助2000元。</p>
+
+      <h3 class="section-title">第六条 创新创业孵化平台奖补</h3>
+      <p>自2021年起，经区科技主管部门核定，对创新创业孵化平台建设采取以下支持政策：</p>
+      <ul>
+        <li>对新认定的国家级孵化器，一次性补助20万元；对新认定的自治区级孵化器，一次性补助10万元；对新认定的桂林市级孵化器，一次性补助5万元。</li>
+        <li>对通过国家备案的众创空间，一次性补助5万元；对通过自治区备案的众创空间，一次性补助3万元；对通过桂林市备案的众创空间，一次性补助1万元。</li>
+        <li>对通过国家认定的星创天地，一次性补助5万元；对通过自治区认定的星创天地，一次性补助3万元。</li>
+      </ul>
+
+      <h3 class="section-title">第七条 技术合同登记奖补</h3>
+      <p>鼓励技术卖方进行技术合同认定登记，自2021年起，对于取得技术合同认定登记证明的技术开发、技术转让、技术许可、技术服务、技术咨询合同，且合同金额不小于50万元的项目，一次性给予每项2000元的补助。</p>
+
+      <h3 class="section-title">第八条 科技成果转化奖补</h3>
+      <p>鼓励企业引进、转化科技成果。</p>
+      <ul>
+        <li>自2021年起，对于以技术交易方式引进科技成果，单个技术交易额在30万元以上，并通过自治区科技厅重大科技成果核验、公示的，每个项目一次性补助1万元。</li>
+        <li>自2021年起，企业自有科技成果进行科技成果登记，且单个项目转化效益三年内累计大于500万元，并按要求完成自治区科技厅重大科技成果核验、公示的，每个项目一次性补助1万元。</li>
+      </ul>
+
+      <h3 class="section-title">第九条 瞪羚企业培育</h3>
+      <p>培育发展"瞪羚企业"。重点培育一批规模较大、增长速度快、创新能力强、发展前景好的企业逐步成为"瞪羚企业"，自2021年起，对获得"瞪羚企业"评选认定的一次性补助10万元，支持其开展技术攻关、新产品研发、产学研合作、科技成果转化等创新活动。</p>
+
+      <h3 class="section-title">第十条 研发机构与研发投入</h3>
+      <p>鼓励企业加大研发经费投入，提升企业自主创新能力。</p>
+      <ul>
+        <li>企业申报科技、工信等专项资金支持项目时，研发经费投入将作为重要审核指标，对上年度研发经费占主营业务收入比重达到1％以上的规模企业优先支持。</li>
+        <li>支持企业建立研发机构。鼓励规模及以上企业、高新技术企业与高校、科研院所共同设立研发机构、产业技术创新战略联盟或企业借智引智，建立国家及自治区重点实验室、企业技术创新中心、企业工程研究中心、院士工作站、博士后科研工作站、科技成果转化中试基地等。新建研发机构经区科技主管部门审核认定及通过区科技主管部门复审认定的研发机构给予1—5万元补助。</li>
+      </ul>
+
+      <h3 class="section-title">第十一条 创新创业大赛奖励</h3>
+      <p>鼓励企业、团队和个人参加由国家各部委牵头举办的各类创新创业大赛，增强创新活力。对晋级广西赛区复赛的一次性奖励1万元，晋级广西赛区决赛的一次性奖励2万元，晋级全国总决赛的一次性奖励3万元，在全国总决赛中获奖的一次性奖励5万元。同一项目不重复奖励，按其获得的最好成绩给予奖励。</p>
+
+      <h3 class="section-title">第十二条 申报与管理</h3>
+      <p>区科技主管部门会同区财政等相关部门，根据本办法制定实施细则。</p>
+      <p>以上奖补项目采用公开申报的形式，上报材料前须先向区科技主管部门报备，否则视为不符合奖补条件。符合条件的单位、企业或个人执相关材料到区科技主管部门报审。</p>
+      <p>本办法由区科技主管部门负责解释，自印发之日起施行，有效期五年。本办法与临桂区其他文件规定的扶持政策属于同类型的，按照就高不就低的原则执行，不重复享受。</p>
+    `
+  },
+
+  /* ===== 桂林市级 ===== */
+  {
+    id:"gl-1",
+    level:"guilin",
+    levelLabel:"桂林市级",
+    title:"桂林市支持科技创新发展的若干政策措施",
+    docNo:"市政规〔2024〕6号",
+    issuingUnit:"桂林市人民政府",
+    date:"2024-05-27",
+    valid:"有效期至2026年12月31日",
+    summary:"围绕企业研发经费投入、高新技术企业与瞪羚企业培育、创新创业大赛、重大科技项目配套、核心技术攻关、产学研合作、创新平台与孵化载体建设、高层次人才服务等方面出台系统性奖补措施。",
+    body:`
+      <p class="lead">为深入实施创新驱动发展战略，完善科技创新体系，强化企业创新主体地位，激发创新创业活力，推动科技创新促进桂林世界级旅游城市建设，根据《广西壮族自治区科技创新条例》和《中共桂林市委员会 桂林市人民政府关于大力推动科技创新支撑桂林世界级旅游城市建设的意见》（市发〔2023〕6号）要求，结合我市实际制定本政策措施。</p>
+
+      <h3 class="section-title">一、激励企业提升自主创新能力</h3>
+
+      <h4 class="sub-title">（一）支持企业加大研发经费投入</h4>
+      <p>给予企业研发经费财政奖补，具体标准如下：</p>
+      <ul>
+        <li><strong>增量奖补。</strong>研发经费增量20万元（含）以上的规模以上企业，投入强度＜5%的，按上一年度企业研发经费投入增量的3%核算奖补；投入强度≥5%的，按5%核算奖补，单个企业每年增量奖补总额不超过50万元。研发经费增量10万元（含）以上的规模以下企业，按2%核算奖补，单个企业每年增量奖补总额不超过20万元，且政策有效期内只能享受2次。</li>
+        <li><strong>特别奖补。</strong>对上一年度投入强度≥10%且企业研发经费投入≥1亿元的企业，单个企业每年给予特别奖补100万元；投入强度≥10%且研发经费投入5000万元（含）至1亿元（不含）的，奖补50万元。</li>
+      </ul>
+
+      <h4 class="sub-title">（二）支持培育发展高新技术企业</h4>
+      <p>对被认定为国家高新技术企业的，按首次认定、重新认定分别一次性奖补10万元、5万元；对新引进的有效期内国家高新技术企业整体迁至我市的，参照首次认定一次性奖补10万元。</p>
+
+      <h4 class="sub-title">（三）支持培育壮大瞪羚企业</h4>
+      <p>对被认定为广西瞪羚企业的，按首次认定、重新认定分别一次性奖补50万元、30万元；对新引进的有效期内瞪羚企业整体迁至我市的，参照首次认定一次性奖补50万元。</p>
+
+      <h4 class="sub-title">（四）支持科技型企业参加中国创新创业大赛</h4>
+      <p>对晋级广西赛区产业领域复赛的一次性奖励1万元，获优胜企业奖的一次性奖励3万元；晋级全国赛的一次性奖励5万元，获优秀企业奖的一次性奖励10万元；晋级全国总决赛的一次性奖励20万元，获等级奖的一次性奖励50万元。同一项目不重复奖励，按其获得的最好成绩给予奖励。</p>
+
+      <h4 class="sub-title">（五）支持企业牵头承担国家、自治区重大科技项目</h4>
+      <p>对企业牵头承担的国家、自治区科技重大专项、重点研发计划项目，且单个项目合同资助总金额300万元（含）以上的，项目执行期内按牵头企业上一年度该项目实际获得财政科技经费金额给予一定比例配套资助，其中国家级项目配套资助10%，自治区级项目配套资助5%。单个企业每年配套资助总额不超过100万元。</p>
+
+      <h4 class="sub-title">（六）支持企业开展核心技术攻关</h4>
+      <p>市本级科技重大专项、重点研发计划等产业类项目，企业作为牵头单位的比例提高到80%以上。每年支持企业开展技术攻关项目50项以上，支持产业关键核心技术工业化应用项目10项以上。</p>
+
+      <h4 class="sub-title">（七）支持企业与高校、科研院所合作</h4>
+      <p>对企业与高校、科研院所联合开展技术创新合作，到位经费30万元（含）以上的横向科研项目，经报市科技局备案通过后，以市本级自筹经费科技项目下达。</p>
+
+      <h4 class="sub-title">（八）支持企业产品迭代与创新</h4>
+      <p>对获得自治区国内首台（套）重大技术装备认定的生产企业，市本级通过科技计划项目方式，支持企业开展后续系列重大技术装备的研发。</p>
+
+      <h3 class="section-title">二、支持打造高水平科技创新平台和基地</h3>
+
+      <h4 class="sub-title">（九）支持创建高水平科研平台</h4>
+      <p>市本级科技计划项目设立专项，对2年内新认定的国家和省部级科研平台（重点实验室、工程研究中心、企业技术中心、技术创新中心、制造业创新中心、科技成果转化中试研究基地等），择优给予自主立项资助。</p>
+
+      <h4 class="sub-title">（十）支持创新创业孵化平台建设</h4>
+      <ul>
+        <li>对新认定的国家、自治区级科技企业孵化器，分别一次性奖补100万元、50万元；对国家级科技企业孵化器上一年度获得优秀（A类）评级的，给予30万元奖励。</li>
+        <li>对新通过国家、自治区备案的众创空间，分别一次性奖补10万元、5万元。</li>
+      </ul>
+
+      <h4 class="sub-title">（十一）支持构建科技创新平台梯次培育体系</h4>
+      <p>支持以依托企业为主、其他具有一定产学研合作基础的高校和科研院所为辅，建设桂林市科技创新中心，形成培育自治区级科技创新平台的储备力量。市本级科技计划设立专项，对新认定的桂林市科技创新中心择优给予支持。</p>
+
+      <h3 class="section-title">三、支持高层次人才服务产业技术创新</h3>
+      <ul>
+        <li><strong>（十二）实施"杰出科技人才"培引计划。</strong>围绕桂林世界级旅游城市建设，紧扣关键核心技术，在重要产业领域，面向区内外引进培育杰出科技人才团队，解决关键核心技术难题。</li>
+        <li><strong>（十三）实施博士人才服务企业创新示范。</strong>围绕我市企业发展技术需求，支持博士人才团队深入企业开展产学研服务，联合开展新技术（新产品）研发和科技服务。</li>
+        <li><strong>（十四）实施青年创新人才科研专项。</strong>支持新引进到我市企事业单位工作的博士毕业生（自然科学类），到我市工作第一至第三年，申报自主选题科研项目。</li>
+      </ul>
+
+      <h3 class="section-title">四、其他事宜</h3>
+      <p>我市六城区和市属三大园区的企事业单位，适用本政策措施。县（市、区）财政可以安排资金参照执行。存在科研失信行为或者其他严重失信行为，并处于失信行为惩戒期内的单位，不予奖补。</p>
+      <p>本政策措施自印发之日起施行，有效期至2026年12月31日，奖补申报上一年度的创新业绩，涉及奖补业绩自2023年至2025年。</p>
+    `
+  },
+  {
+    id:"gl-2",
+    level:"guilin",
+    levelLabel:"桂林市级",
+    title:"桂林市支持科技成果转化若干政策措施（2024年修订）",
+    docNo:"市政规〔2024〕10号",
+    issuingUnit:"桂林市人民政府",
+    date:"2024-11-20",
+    valid:"有效期至2025年12月31日",
+    summary:"聚焦科技成果转化实施、专业化服务、产学研深度合作、多元化融资渠道，对高校院所成果转化、企业吸纳成果产业化、农业成果推广、高端人才带成果转化、技术转移机构及中试平台等给予奖补。",
+    body:`
+      <p class="lead">为了充分发挥科教资源优势，以更大力度推进科技成果转化和产业化，加速产业链与创新链双向融合，促进我市产业高质量发展，制定本措施。</p>
+
+      <h3 class="section-title">一、促进科技成果转化实施</h3>
+
+      <h4 class="sub-title">（一）鼓励高校、科研机构的科技成果在我市转化应用</h4>
+      <p>对高校、科研院所以及创新飞地的科技成果在我市转化给予奖补。奖补以技术交易额不低于30万元的技术合同（技术开发、技术转让、技术许可合同）为依据，按照单个技术合同实际发生技术交易额的3%奖补（最高不超过150万元）。高校、科研机构应当将不低于70%的奖补资金作为分配资金，分配给成果完成人和在成果转化过程中作出贡献的个人，其中分配给在成果转化过程中作出贡献的个人不低于分配资金的50%。</p>
+
+      <h4 class="sub-title">（二）推动企业实施重大科技成果转化</h4>
+      <ul>
+        <li><strong>鼓励企业吸纳科技成果。</strong>对企业吸纳科技成果实施转化给予奖补，以技术交易额不低于30万元的技术合同为依据，按照实际发生技术交易额的3%奖补，每家企业每年奖补金额不超过100万元。企业应当将不低于30%的奖补资金奖励给促成科技成果转化的个人。</li>
+        <li><strong>鼓励科技成果在我市实现产业化。</strong>对单项科技成果在我市转化应用实现三年新增销售收入累计不低于500万元的企业，按照三年中最高年度新增销售收入的1%给予奖补。企业每转化应用一项科技成果，只能享受一次奖补且不超过30万元，累计不超过300万元。</li>
+      </ul>
+
+      <h4 class="sub-title">（三）鼓励农业科技成果在我市推广应用</h4>
+      <p>对引进动植物优新品种进行试验示范、推广应用的涉农企事业单位，按照单个新技术成果（新品种）年度新增销售收入给予奖补：100万元（含）—500万元奖补5万元；500万元（含）—1000万元奖补10万元；1000万元（含）以上奖补20万元。每家单位每年奖补不超过100万元。</p>
+
+      <h4 class="sub-title">（四）鼓励高端人才带科技成果转化创新创业</h4>
+      <p>设立高端人才科技成果转化专项，对符合自治区高层次人才D类（含）以上，或者桂林市高层次人才5类（含）以上条件的高端人才持有的科技成果在我市实现产业化的项目，择优给予不高于80万元的科技经费支持。</p>
+
+      <h4 class="sub-title">（五）推动科技成果权属改革</h4>
+      <p>经主管部门或者所在单位审批同意，允许市属高校、科研院所的科研人员兼职创新、离岗创业。允许职务科技成果完成人和为科技成果转化作出主要贡献的科技人员等按照规定获得股权和分红奖励。对不宜确权分割的科技成果，市属高校、科研院所可以按照"先赋权、后转化"模式与科技成果完成人（团队）签署协议，可以赋予科研人员不低于10年的长期使用权。</p>
+
+      <h3 class="section-title">二、支持科技成果转化专业化服务</h3>
+
+      <h4 class="sub-title">（六）支持科技成果转化专业化中介服务</h4>
+      <p>对促成科技成果在我市转化的技术转移示范机构，按照年度促成技术交易额不低于30万元的技术合同实际发生技术交易金额的3%给予奖补，每家每年奖补金额不超过100万元。技术转移示范机构应当将不低于30%的奖补资金奖励给技术经纪人（经理人）等在转移转化过程中作出主要贡献的人员。</p>
+
+      <h4 class="sub-title">（七）鼓励科技成果转化平台加强专业化服务</h4>
+      <p>支持在高新区、经济技术开发区、高铁（桂林）广西园、县域双创示范基地、桂林大学科技园等创新资源集聚区内的科技成果转化示范基地、双创孵化基地等平台，围绕科技成果转化提供小试、中试、二次创新等专业化服务。</p>
+
+      <h4 class="sub-title">（八）鼓励政校企合作培养产业发展和成果转化人才</h4>
+      <p>鼓励高校围绕电子信息、先进装备制造、生物医药及医疗器械、生态食品等优势产业及新一代信息技术、新材料、新能源及节能环保等新兴产业合理布局学科专业，培养我市产业发展和科技成果转化专业技术人才。</p>
+
+      <h4 class="sub-title">（九）鼓励中试研究基地提供专业服务</h4>
+      <p>对经自治区科技部门认定的科技成果转化中试研究基地，按照为企业转化科技成果提供专业服务的年度技术合同（技术咨询、技术服务）实际发生技术交易额的3%给予奖补，同一基地每年奖补金额不超过300万元。</p>
+
+      <h3 class="section-title">三、支持产学研深度合作</h3>
+      <ul>
+        <li><strong>（十）支持科技成果转化二次创新。</strong>对高校、科研机构的科技成果转化过程中需要开展的应用研究，择优给予科技成果转化专项经费支持。</li>
+        <li><strong>（十一）促进科技型中小企业科技成果需求对接。</strong>每年从高校、科研院所中选派不少于100名科技人员服务企业，为企业提供科研智力支持，分析阻碍企业发展的技术瓶颈及技术需求，理清技术对接路径。</li>
+      </ul>
+
+      <h3 class="section-title">四、建立多元化的科技成果转化融资渠道</h3>
+      <ul>
+        <li><strong>（十二）设立科创基金。</strong>推动设立科创基金支持优质科技成果落地转化，探索设立专项子基金由大学科技园代持代投模式。</li>
+        <li><strong>（十三）建立科技成果产业化贷款贴息专项。</strong>对获得专项贷款的企业给予利息补贴，补贴比例不超过实际支付利息的70%，单个企业年度贴息总额不超过100万元。</li>
+        <li><strong>（十四）加大市、县（市、区）财政科技投入。</strong>市本级、县（市、区）财政应当持续加大财政性科学技术经费投入力度，财政用于科学技术经费的增长幅度，应当高于财政经常性收入的增长幅度。</li>
+      </ul>
+
+      <h3 class="section-title">五、其他</h3>
+      <p>符合本措施规定的奖补政策，均于下一年度发放。按照发布的申领通知要求，一次性申领，未按照申领时限申请的，视为放弃申请。</p>
+      <p>本措施中涉及财政支持条款，适用于本市六城区和市属三大园区，其余县（市）可根据实际情况参照执行。本措施自印发之日起施行，有效期至2025年12月31日。本市其他文件与本措施规定不一致的以及本措施各同类条款，按照就高不就低的原则执行，不重复享受。</p>
+    `
+  },
+
+  /* ===== 自治区级 ===== */
+  {
+    id:"gx-1",
+    level:"gx",
+    levelLabel:"自治区级",
+    title:"关于进一步强化企业科技创新主体地位培育壮大科技型企业的若干措施",
+    docNo:"桂政办发〔2025〕42号",
+    issuingUnit:"广西壮族自治区人民政府办公厅",
+    date:"2025-09-20",
+    valid:"现行有效",
+    summary:"围绕构建高质量科技型企业矩阵、发挥企业出题人、答题人、阅卷人作用、激励企业持续加大研发投入、培育企业科技人才队伍、加强科技金融支持、优化政策环境六大维度提出25条具体措施。",
+    body:`
+      <p class="lead">为认真贯彻落实习近平总书记关于科技创新的重要论述和关于广西工作论述的重要要求，培育更多科技型企业，强化企业科技创新主体地位，提升企业科技创新引领力和竞争力，加快推动高水平创新型广西建设，提出如下措施。</p>
+
+      <h3 class="section-title">一、构建高质量科技型企业矩阵</h3>
+
+      <h4 class="sub-title">（一）完善企业梯次培育体系</h4>
+      <p>健全"科技型中小企业—高新技术企业—瞪羚企业—科技领军企业"梯次培育工作机制，构建动态调整、层次清晰的科技型企业培育库，建立"一企一员一案"制度，实施精准培育服务。推动科技型中小企业研发费用加计扣除政策全覆盖；推动规上工业企业、规上服务业企业、农业龙头企业成为高新技术企业、瞪羚企业；建立科技领军企业储备库，给予储备库企业享受与科技领军企业同等水平的政策支持。</p>
+
+      <h4 class="sub-title">（二）优化企业认定服务</h4>
+      <p>强化科技、财政、税务等部门工作协同，简化高新技术企业认定申报材料，提升认定服务效率和便利化水平。调整瞪羚企业认定管理方式，支持瞪羚企业更便捷享受优惠政策。定制科技型企业服务包，为企业提供政策咨询、申报辅导、研发费用归集、知识产权运用与保护等集成服务。</p>
+
+      <h4 class="sub-title">（三）强化企业孵化载体建设</h4>
+      <p>对新获得认定的部级、自治区级科技型企业孵化器给予不超过100万元的后补助。将科技型企业培育情况纳入评价指标，对评价为"优秀"等次的自治区级及以上科技型企业孵化器给予50万—200万元的后补助。</p>
+
+      <h3 class="section-title">二、发挥企业"出题人""答题人""阅卷人"作用</h3>
+
+      <h4 class="sub-title">（四）发挥企业"出题人"作用</h4>
+      <p>将科技领军企业、瞪羚企业、高新技术企业重大关键技术攻关需求作为科技任务部署的重要方向。企业评审委员在自治区科技发展战略咨询与综合评审委员会中的人数占比不低于1/3；对产业类科技计划项目，企业评审专家人数占比不低于1/3。</p>
+
+      <h4 class="sub-title">（五）发挥企业"答题人"作用</h4>
+      <p>推动产业类科技计划项目由企业牵头实施的比例不低于70%。支持科技领军企业牵头实施"尖锋"行动计划项目。设立科技型企业能力提升专项。探索实施科技型中小企业、高新技术企业"先投后股"、"拨投结合"项目。</p>
+
+      <h4 class="sub-title">（六）发挥企业"阅卷人"作用</h4>
+      <p>建立企业参与科技计划项目验收评价机制，邀请科技型企业对项目完成情况和科技成果推广应用价值进行评价，相关结果作为项目验收评价的重要依据。</p>
+
+      <h3 class="section-title">三、激励企业持续加大科技研发投入</h3>
+
+      <h4 class="sub-title">（七）支持企业牵头建设高水平创新平台</h4>
+      <p>通过"科技项目＋创新平台"方式，支持科技领军企业牵头创建国家技术创新中心、新兴产业创新中心、制造业创新中心及全国重点实验室等高水平创新平台，建设期内给予每家不低于5000万元的自治区科技计划项目支持；支持企业牵头组建自治区实验室、自治区技术创新中心，建设期内给予每家不高于5000万元的自治区科技计划项目支持。</p>
+
+      <h4 class="sub-title">（八）完善科技计划项目立项评审方式</h4>
+      <p>建立"以赛代评"、"以投代评"、"以贷代评"等科技计划项目立项评审机制。对广西创新创业大赛总决赛、中国创新创业大赛全国赛成长组企业获奖项目，以及赛事结束1年内获得创业投资、银行科技贷款500万元以上的初创组企业获奖项目，给予自治区科技计划项目支持。</p>
+
+      <h4 class="sub-title">（九）支持企业争取国家科技计划项目</h4>
+      <p>对牵头承担国家科技计划项目的企业，按企业获得资助经费额度给予1∶1配套资金支持，最高不超过2000万元。</p>
+
+      <h4 class="sub-title">（十）鼓励企业开展产学研协同创新</h4>
+      <p>支持企业出资与高校、科研院所等联合开展技术创新合作，将企业出资100万元以上、符合"四个面向"要求的横向科技项目纳入自治区科技计划自筹项目。</p>
+
+      <h4 class="sub-title">（十一）推动企业税收优惠政策落实</h4>
+      <p>落实好企业研发费用税前加计扣除政策，按规定将集成电路企业、工业母机企业的研发费用税前加计扣除比例提高至120%。</p>
+
+      <h4 class="sub-title">（十二）强化国有企业科技创新考核激励</h4>
+      <p>在国有企业经营业绩考核中，研发费用视同利润按100%比例加回，科技型企业研发费用视同利润加回的比例提高至120%，关键核心技术攻关项目研发费用视同利润加回的比例提高至200%。</p>
+
+      <h4 class="sub-title">（十三）加大企业科技成果转化支持力度</h4>
+      <p>支持企业原创成果就地转化、引进重大成果落地转化，单个项目资助100万—500万元。对建设重大中试平台的产业龙头企业，给予不超过1000万元的自治区科技计划项目支持。对企业实施科技成果转化的，按科技成果技术交易额20%—40%的比例给予后补助，单项补助金额不超过500万元。</p>
+
+      <h3 class="section-title">四、培育壮大企业科技人才队伍</h3>
+
+      <h4 class="sub-title">（十四）创新企业人才引培机制</h4>
+      <p>实施企业与高校院所联合引才专项试点，以专项项目为牵引，支持重点产业领域企业联合高校院所使用编制靶向引进理工科青年博士人才；探索"高校院所引进、企业使用、共同培养"的人才引培新范式。</p>
+
+      <h4 class="sub-title">（十五）支持企业建设人才高地</h4>
+      <p>支持科技领军企业设立院士工作站，对按照有关规定新备案和评价结果获得"优秀"等次的，给予不超过100万元的自治区科技计划项目资助。对科技型企业新设立博士后科研工作站、博士后创新实践基地的，分别给予30万元、15万元资助；对所招收的博士后，给予每人每年8万元日常经费资助，资助期2年。</p>
+
+      <h4 class="sub-title">（十六）推进科技人才服务企业</h4>
+      <p>选派企业科技特派员为科技型企业开展政策宣讲、资源对接、技术攻关、成果转化等服务，自治区在职称评审、人才项目、科技计划项目申报和评先评优等方面对企业科技特派员予以倾斜支持。</p>
+
+      <h3 class="section-title">五、加强科技金融支持</h3>
+
+      <h4 class="sub-title">（十八）培育壮大耐心资本</h4>
+      <p>设立科技成果转化基金，专注投早、投小、投长期、投硬科技。自治区本级财政资金出资到单支基金的比例原则上不超过50%，多级财政共同出资比例合计原则上不超过70%。</p>
+
+      <h4 class="sub-title">（十九）健全企业贷款贴息和融资担保机制</h4>
+      <p>创新"科创贷"和"研发贷"贴息政策，贴息比例在自治区基础贴息比例上分别提高0.5%、1%。扩大"科创担"、"知识产权质押担"等科技担保业务规模。优化政府性融资担保机构科技担保业务风险补偿机制，补偿标准最高不超过代偿责任金额的50%。</p>
+
+      <h4 class="sub-title">（二十）加快发展科技保险</h4>
+      <p>对科技型企业实际缴纳科技保险保费给予最高50%的补贴。开展首台（套）重大技术装备保险试点和新材料首批次应用保险试点，探索开办首版次软件保险。</p>
+
+      <h4 class="sub-title">（二十一）服务科技型企业上市融资</h4>
+      <p>配备科技型上市企业联络服务员，健全科技型上市企业联系服务机制。使用专项信用报告替代无违法违规记录证明，推动企业上市合法合规信息核查"一件事"高效办理。</p>
+
+      <h3 class="section-title">六、构建更有利于科技型企业发展的政策环境</h3>
+
+      <h4 class="sub-title">（二十二）强化企业知识产权服务</h4>
+      <p>为我区重点产业领域符合条件的企业专利申请提供快速预审服务，将发明专利、实用新型专利、外观设计专利审查周期分别缩短为3至6个月、1至2个月、10至20个工作日。对企业主持起草国际标准、国家标准、地方标准并获评广西重要技术标准的，分别给予30万元、20万元、10万元资助。</p>
+
+      <h4 class="sub-title">（二十三）支持企业产品迭代与创新</h4>
+      <p>对获批认定且未获得财政性科技资金资助的首台（套）装备按照销售价格的50%给予一次性奖励，单台（套）装备奖励金额最高不超过200万元。对获批认定为广西首版次软件和首批次新材料的产品，按照产品销售累计金额20%的比例，给予不超过200万元的一次性奖励。</p>
+
+      <h4 class="sub-title">（二十四）加大政府采购企业自主创新产品力度</h4>
+      <p>采取预留采购份额、价格评审优惠等措施，加大政府采购对科技型中小企业的支持力度。</p>
+
+      <h4 class="sub-title">（二十五）加强惠企政策智能匹配与精准推送</h4>
+      <p>运用人工智能大模型技术，升级优化广西惠企惠民政策兑现平台，集成科技、金融、人才、税收、要素保障等各类惠企政策，精准推送相关政策内容、申报条件及流程，实现政策"一键查询"、"智能匹配"。加大力度推行普惠性政策免申即享模式。</p>
+
+      <p class="footnote">本措施自印发之日起施行。《广西壮族自治区人民政府办公厅关于印发广西进一步强化企业创新主体地位实施办法的通知》（桂政办发〔2016〕114号）同时废止。此前发布的政策与本措施不一致的，按本措施执行。</p>
+    `
+  },
+  {
+    id:"gx-2",
+    level:"gx",
+    levelLabel:"自治区级",
+    title:"科创广西先行试验区（桂林）建设方案",
+    docNo:"桂政办发〔2026〕5号",
+    issuingUnit:"广西壮族自治区人民政府办公厅",
+    date:"2026-01-24",
+    valid:"有效期至2030年12月31日",
+    summary:"以临桂、七星、雁山、花江四大智慧谷为核心区，实施高能级科创园区建设、科技成果转化集聚、壮大科技企业、开放创新平台建设、科技体制机制改革五大先行突破行动，自治区每年新增安排8000万元专项资金支持。",
+    body:`
+      <p class="lead">为支持桂林市充分发挥科教资源与产业基础优势，加快推动高水平创新型广西建设，打造科创广西先行试验区（桂林），制定本方案。</p>
+
+      <h3 class="section-title">一、总体要求</h3>
+      <p>深入实施科教兴桂、人才强桂和创新驱动发展战略，坚持有所为、有所不为，突出抓好策略、整合、场景，以推动科技成果转化为主线，深入推进开放协同创新，激发体制机制活力，构建"北上广研发＋广西集成＋东盟应用"科技创新路径，因地制宜发展新质生产力，打造科技创新与产业创新深度融合的新高地。</p>
+      <p><strong>到2030年目标：</strong>全社会研发经费投入年均增速15%以上、投入强度2%以上，新建自治区级创新平台50家以上，每万人口高价值发明专利拥有量突破9件；新增高新技术企业200家以上、专精特新中小企业及专精特新"小巨人"企业30家以上、上市企业3家左右，战略性新兴产业和高技术制造业增加值占规模以上工业增加值比重分别超过40%和32%；年技术合同成交额突破100亿元，引育高层次创新创业人才100人以上。</p>
+
+      <h3 class="section-title">二、重点任务</h3>
+
+      <h4 class="sub-title">（一）实施高能级科创园区建设先行突破行动</h4>
+      <p><strong>1．优化科创园区布局。</strong>以临桂、七星、雁山、花江四大智慧谷为核心区，以桂林高新区、经开区为协同区，构建"核心引领、协同赋能、全域辐射"的高能级科创园区体系。<strong>临桂智慧谷重点发展新一代信息技术、新材料和生物医药产业</strong>，推动产业数字化和数字产业化深度融合。七星智慧谷着力打造先进装备制造和电子信息产业集聚区。雁山智慧谷重点发展"人工智能＋文旅"和生态食品产业。花江智慧谷聚焦人工智能和低空经济。</p>
+      <p><strong>2．增强科创园区创新发展动能。</strong>构建"创业苗圃—孵化器—加速器—产业化基地"全链条孵化体系，建立"深度孵化"、"持股孵化"机制，对促成创业投资的孵化器按融资额2%给予每年最高50万元科技计划项目经费补助。对新获认定为自治区级及以上产业技术基础公共服务平台的企业，给予每家最高300万元科技计划项目经费支持。</p>
+
+      <h4 class="sub-title">（二）实施科技成果转化集聚先行突破行动</h4>
+      <ul>
+        <li><strong>3．打造人工智能应用示范高地。</strong>对年度主营业务收入首次突破3000万元的人工智能企业，给予每家最高100万元科技计划项目经费支持。</li>
+        <li><strong>4．系统布局跨域科创飞地。</strong>对科创飞地科研成果落地产业化且当年生产设备投资额达到300万元的工业项目，按生产设备投资额的15%给予每个最高100万元奖励。</li>
+        <li><strong>5．聚焦优质科技成果集聚转化。</strong>对科技成果转化年产值超5000万元且实际到账的自治区级及以上科技创新平台，给予每家最高500万元奖励性后补助。</li>
+        <li><strong>6．释放科研院所创新势能。</strong>对填补国内技术空白或预期可培育形成百亿级产业集群的固定资产投资10亿元以上重大产业项目，按照固定资产投资额的6%给予最高1亿元资金支持。</li>
+        <li><strong>7．建设"校友归巢"创业生态。</strong>建设"校友归巢"大数据服务平台，靶向招引优质校友企业及项目落地。</li>
+        <li><strong>8．建设校企合作"创新港"。</strong>对高校师生在国家大学科技园转化科技成果创业的，择优给予每个团队最高100万元科技计划项目经费支持。</li>
+        <li><strong>9．深化面向东盟科技合作。</strong>对新认定的科技部国际科技合作基地、自治区面向东盟联合实验室，3年内给予每个最高1000万元科技计划项目经费补助。</li>
+      </ul>
+
+      <h4 class="sub-title">（三）实施壮大科技企业先行突破行动</h4>
+      <ul>
+        <li><strong>10．强化企业创新主体地位。</strong>对研发强度高于5%或年度研发投入2000万元以上的企业，给予每家最高500万元科技计划项目经费支持。对企业牵头且符合条件的自治区级突破关键核心技术产业化项目，按不超过固定资产投资额的15%给予每个最高2000万元奖补。支持企业牵头组建创新联合体，择优给予每个最高500万元科技计划项目经费支持。</li>
+        <li><strong>11．培育企业新增长曲线。</strong>对首次获认定为技术创新中心（领域类）等自治区级科技创新平台的企业，给予每家最高50万元奖补。</li>
+        <li><strong>12．强化科技金融支撑。</strong>支持桂林市按市场化方式研究设立概念验证基金、科创投资子基金、成果转化子基金，构筑科创基金群。</li>
+      </ul>
+
+      <h4 class="sub-title">（四）实施开放创新平台建设先行突破行动</h4>
+      <ul>
+        <li><strong>13．建设概念验证中心。</strong>建设临桂智慧谷综合概念验证中心和若干专业型概念验证中心。自治区每年安排1000万元科技计划项目经费择优实施一批概念验证项目。概念验证项目获得外部投资或实现知识产权转让的概念验证中心，给予每年每家最高100万元科技计划项目经费补助。</li>
+        <li><strong>14．提升中试平台服务能力。</strong>鼓励中试平台对外开放服务，按服务收入实际到账金额（不含财政拨付经费）的25%给予每年每家最高100万元科技计划项目经费补助。对新列入重点培育名单的国家制造业中试平台给予每家最高500万元科技计划项目经费支持。</li>
+        <li><strong>15．培育新型研发机构。</strong>根据横向到位经费收入情况给予每年每家最高1000万元科技计划项目经费补助。</li>
+      </ul>
+
+      <h4 class="sub-title">（五）实施科技体制机制改革先行突破行动</h4>
+      <ul>
+        <li><strong>16．深化科技成果转化机制改革。</strong>支持桂林高校、科研院所制定职务科技成果资产单列管理制度，允许科研团队横向结余经费入股转化项目。积极推广"先使用后付费"成果转化模式。</li>
+        <li><strong>17．一体推进教育科技人才发展。</strong>鼓励高校与桂林市龙头企业试点"产业教授"与"高校研究员"岗位互聘，探索校企联聘人才模式。</li>
+        <li><strong>18．建设桂林科技服务集团。</strong>以市场化方式整合科技服务资源，统筹开展研究开发、技术转移、创业孵化、知识产权运营、科技咨询、科技金融等专业服务。</li>
+        <li><strong>19．建立健全容错免责机制。</strong>在先行先试过程中未违反相关法律法规、政策制度，已履行民主决策、公示监督等程序，且无非法牟利行为，因不可预见因素导致转化失败的，经认定后可给予相关单位或个人免责、减责。</li>
+      </ul>
+
+      <h3 class="section-title">三、保障措施</h3>
+      <p>自治区层面建立统筹协调和评估机制，统筹科技、工业振兴等专项资金强化资金保障，其中<strong>每年新增安排自治区创新驱动发展专项资金8000万元</strong>，用于支持科创广西先行试验区（桂林）建设。桂林市履行建设主体责任，建立工作体系，落实投入责任。</p>
+      <p class="footnote">本方案自印发之日起施行，有效期至2030年12月31日。实施期间，如遇国家政策调整，按照新的政策执行。</p>
+    `
+  }
+];
+
+/* ============ 渲染逻辑 ============ */
+const grid = document.getElementById('grid');
+const tabs = document.querySelectorAll('.tab');
+const searchInput = document.getElementById('search');
+const resultInfo = document.getElementById('resultInfo');
+const overlay = document.getElementById('overlay');
+const detailPanel = document.getElementById('detailPanel');
+const detailBody = document.getElementById('detailBody');
+const backBtn = document.getElementById('backBtn');
+const closeBtn = document.getElementById('closeBtn');
+
+let currentLevel = 'all';
+let currentKeyword = '';
+
+function levelClass(level){
+  return {lingui:'level-lingui',guilin:'level-guilin',gx:'level-gx'}[level];
+}
+
+function render(){
+  const keyword = currentKeyword.trim().toLowerCase();
+  const list = POLICIES.filter(p=>{
+    const levelOk = currentLevel==='all' || p.level===currentLevel;
+    const kwOk = !keyword ||
+      p.title.toLowerCase().includes(keyword) ||
+      p.docNo.toLowerCase().includes(keyword) ||
+      p.summary.toLowerCase().includes(keyword);
+    return levelOk && kwOk;
+  });
+
+  // 排序：临桂 > 桂林 > 自治区，同级按日期倒序
+  const order = {lingui:0,guilin:1,gx:2};
+  list.sort((a,b)=> order[a.level]-order[b.level] || b.date.localeCompare(a.date));
+
+  resultInfo.textContent = `共 ${list.length} 条政策`;
+
+  if(list.length===0){
+    grid.innerHTML = `<div class="empty">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <div>未找到匹配的政策</div>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(p=>`
+    <div class="card" data-id="${p.id}">
+      <span class="level-tag ${levelClass(p.level)}">${p.levelLabel}</span>
+      <h3>${p.title}</h3>
+      <div class="meta">
+        <span>${p.docNo}</span>
+        <span>${p.date}</span>
+      </div>
+      <div class="summary">${p.summary}</div>
+      <div class="read-more">
+        查看原文
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('click',()=>openDetail(card.dataset.id));
+  });
+}
+
+function updateCounts(){
+  document.getElementById('count-all').textContent = POLICIES.length;
+  document.getElementById('count-lingui').textContent = POLICIES.filter(p=>p.level==='lingui').length;
+  document.getElementById('count-guilin').textContent = POLICIES.filter(p=>p.level==='guilin').length;
+  document.getElementById('count-gx').textContent = POLICIES.filter(p=>p.level==='gx').length;
+}
+
+function openDetail(id){
+  const p = POLICIES.find(x=>x.id===id);
+  if(!p) return;
+  detailBody.innerHTML = `
+    <div class="doc-no">${p.docNo}</div>
+    <h2>${p.title}</h2>
+    <div class="detail-meta">
+      <div><strong>发文单位：</strong>${p.issuingUnit}</div>
+      <div><strong>发布日期：</strong>${p.date}</div>
+      <div><strong>效力状态：</strong>${p.valid}</div>
+      <div><strong>层级：</strong>${p.levelLabel}</div>
+    </div>
+    <div class="policy-content">${p.body}</div>
+  `;
+  overlay.classList.add('show');
+  detailPanel.classList.add('show');
+  document.body.style.overflow='hidden';
+  detailBody.scrollTop = 0;
+}
+
+function closeDetail(){
+  overlay.classList.remove('show');
+  detailPanel.classList.remove('show');
+  document.body.style.overflow='';
+}
+
+/* 事件绑定 */
+tabs.forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    tabs.forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    currentLevel = tab.dataset.level;
+    render();
+  });
+});
+
+searchInput.addEventListener('input',e=>{
+  currentKeyword = e.target.value;
+  render();
+});
+
+backBtn.addEventListener('click',closeDetail);
+closeBtn.addEventListener('click',closeDetail);
+overlay.addEventListener('click',closeDetail);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeDetail();
+});
+
+/* 初始化 */
+updateCounts();
+render();
+
+/* 生成底部二维码（自动指向当前页面地址） */
+new QRCode(document.getElementById('qrCanvas'),{
+  text: window.location.href,
+  width: 170,
+  height: 170,
+  colorDark: '#1a365d',
+  colorLight: '#ffffff',
+  correctLevel: QRCode.CorrectLevel.H
+});
+
+/* 微信环境检测与引导 */
+(function(){
+  var ua = navigator.userAgent.toLowerCase();
+  var isWeChat = /micromessenger/.test(ua);
+  if(isWeChat){
+    var guide = document.getElementById('wxGuide');
+    var closeBtn = document.getElementById('wxClose');
+    if(guide){
+      guide.classList.add('show');
+      closeBtn.addEventListener('click',function(){
+        guide.classList.remove('show');
+      });
+    }
+  }
+})();
+</script>
+
+
+
+</body></html>
